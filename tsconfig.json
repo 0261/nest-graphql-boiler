@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "module": "CommonJS",
+    "target": "ES2020",
+    "lib": [
+      "ESNext"
+    ],
+    "sourceMap": true,
+    "outDir": "./dist",
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "incremental": true,
+    "importHelpers": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "baseUrl": "./src",
+    "paths": {
+      "~globally": [
+        "globally"
+      ],
+      "~core/*": [
+        "core/*"
+      ],
+      "~lib/*": [
+        "lib/*"
+      ],
+      "~api/*": [
+        "api/*"
+      ],
+      "~utils": [
+        "utils"
+      ]
+    }
+  },
+  "ts-node": {
+    "files": true
+  }
+}

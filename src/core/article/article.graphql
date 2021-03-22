@@ -1,0 +1,36 @@
+type ArticleConnection {
+  """
+  edges
+  """
+  edges: [ArticleEdge!]!
+  """
+  pageInfo
+  """
+  pageInfo: PageInfo!
+}
+type ArticleEdge {
+  """
+  cursor
+  """
+  cursor: String
+  """
+  article node
+  """
+  node: Article!
+}
+type Article {
+  """
+  ID
+  """
+  id: ID!
+  """
+  article title
+  """
+  title: String!
+}
+
+input GetArticlesInput {
+  first: Int
+  after: String
+  before: String
+}
