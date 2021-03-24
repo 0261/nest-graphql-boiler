@@ -1,0 +1,25 @@
+version: "3.7"
+
+services:
+  postgres:
+    container_name: boiler-pg
+    image: mdillon/postgis:11
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=boiler
+
+  main:
+    container_name: boiler-server
+    build:
+      context: .
+      dockerfile: ./Dockerfilegql
+      target: development
+    volumes:
+      - ./src:/app/src
+      - /src/node_modules
+    ports:
+      - 3000:3000
+    command: npm run start:dev:gql
+    links:
+      - postgres

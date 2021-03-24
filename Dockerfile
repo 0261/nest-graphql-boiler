@@ -1,0 +1,16 @@
+FROM node:lts As development
+
+ARG NPM_TOKEN
+
+WORKDIR /app
+
+COPY package.json yarn.lock ./
+
+RUN yarn
+
+COPY . .
+
+ARG git_commit_id
+RUN echo $git_commit_id >> /app/git_commit_id
+
+RUN yarn build
