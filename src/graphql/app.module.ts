@@ -1,21 +1,19 @@
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
-import { join } from 'path';
 import { ArticleModule } from '~domain/article';
+import { AuthenticationModule } from '~domain/authentication';
 import { UserModule } from '~domain/user/user.module';
+import { GraphqlConfigService } from './graphql-config.service';
 
 @Module({
   imports: [
     //graphql
-    GraphQLModule.forRoot({
-      typePaths: ['./**/*.graphql'],
-      definitions: {
-        path: join(process.cwd(), 'src/__generated__/types.ts'),
-        outputAs: 'interface',
-      },
+    GraphQLModule.forRootAsync({
+      useClass: GraphqlConfigService,
     }),
 
-    // core
+    // domain
+    AuthenticationModule,
     UserModule,
     ArticleModule,
 
