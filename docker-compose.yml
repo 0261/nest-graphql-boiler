@@ -20,7 +20,7 @@ services:
       - ./src:/app/src
       - /src/node_modules
     ports:
-      - 3000:3000
+      - 9821:9821
     command: npm run start:dev
     links:
       - postgres

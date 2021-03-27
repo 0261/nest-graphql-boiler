@@ -19,7 +19,7 @@ services:
       - ./src:/app/src
       - /src/node_modules
     ports:
-      - 3000:3000
+      - 9822:9822
     command: npm run start:dev:gql
     links:
       - postgres
