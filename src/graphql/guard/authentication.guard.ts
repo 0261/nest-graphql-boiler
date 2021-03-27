@@ -3,7 +3,7 @@ import { GqlExecutionContext } from '@nestjs/graphql';
 import { ForbiddenError } from 'apollo-server-express';
 import { Request } from 'express';
 
-import { AuthenticationService } from '~core/authentication';
+import { AuthenticationService } from '~domain/authentication';
 
 @Injectable()
 export class AuthenticationGuard implements CanActivate {
@@ -22,7 +22,7 @@ export class AuthenticationGuard implements CanActivate {
       throw new ForbiddenError('Forbidden');
     }
     else {
-      void this.auth.authenticateByToken(token);
+      this.auth.authenticateByToken(token);
     }
 
     return true;

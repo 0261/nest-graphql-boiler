@@ -21,8 +21,8 @@
       "~globally": [
         "globally"
       ],
-      "~core/*": [
-        "core/*"
+      "~domain/*": [
+        "domain/*"
       ],
       "~lib/*": [
         "lib/*"

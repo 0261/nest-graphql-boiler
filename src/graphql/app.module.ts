@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { join } from 'path';
-import { ArticleModule } from '~core/article';
-import { UserModule } from '~core/user/user.module';
+import { ArticleModule } from '~domain/article';
+import { UserModule } from '~domain/user/user.module';
 
 @Module({
   imports: [
@@ -18,7 +18,6 @@ import { UserModule } from '~core/user/user.module';
     // core
     UserModule,
     ArticleModule,
-
 
   ],
 })
